@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "rusticlite:copper_ore"
+  },
+  "result": "rusticlite:copper",
+  "experience": 0.7,
+  "cookingtime": 200
+}

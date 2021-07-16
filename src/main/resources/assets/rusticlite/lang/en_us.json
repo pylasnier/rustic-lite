@@ -1,0 +1,13 @@
+{
+    "item.rusticlite.copper": "Copper",
+    "block.rusticlite.copper_ore": "Copper Ore",
+    "block.rusticlite.copper_block": "Copper Block",
+    "block.rusticlite.leaves_ironwood": "Ironwood Leaves",
+    "block.rusticlite.leaves_olive": "Olive Leaves",
+    "block.rusticlite.log_ironwood": "Ironwood Log",
+    "block.rusticlite.log_olive": "Olive Log",
+    "block.rusticlite.planks_ironwood": "Ironwood Planks",
+    "block.rusticlite.planks_olive": "Olive Planks",
+    "block.rusticlite.sapling_ironwood": "Ironwood Sapling",
+    "block.rusticlite.sapling_olive": "Olive Sapling"
+}
