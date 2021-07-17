@@ -9,5 +9,6 @@
     "block.rusticlite.planks_ironwood": "Ironwood Planks",
     "block.rusticlite.planks_olive": "Olive Planks",
     "block.rusticlite.sapling_ironwood": "Ironwood Sapling",
-    "block.rusticlite.sapling_olive": "Olive Sapling"
+    "block.rusticlite.sapling_olive": "Olive Sapling",
+    "itemGroup.rustic_lite_building_blocks": "Rustic Lite Building Blocks"
 }

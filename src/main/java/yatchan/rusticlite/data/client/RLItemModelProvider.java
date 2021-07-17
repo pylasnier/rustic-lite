@@ -22,9 +22,10 @@ public class RLItemModelProvider extends ItemModelProvider {
 
         blockItem(RLBlocks.COPPER_ORE);
         blockItem(RLBlocks.COPPER_BLOCK);
+        blockItem(RLBlocks.IRONWOOD_LOG);
     }
 
-    private ItemModelBuilder blockItem(RegistryObject<Block> blockHandle) {
+    private <T extends Block> ItemModelBuilder blockItem(RegistryObject<T> blockHandle) {
         String blockName = blockHandle.get().getRegistryName().getPath();
         return withExistingParent(blockName, modLoc("block/" + blockName));
     }

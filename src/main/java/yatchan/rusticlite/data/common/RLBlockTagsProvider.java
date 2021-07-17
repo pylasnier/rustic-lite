@@ -20,9 +20,10 @@ public class RLBlockTagsProvider extends BlockTagsProvider {
     protected void addTags() {
         addToTag(RLTags.Blocks.ORES_COPPER, RLBlocks.COPPER_ORE);
         addToTag(RLTags.Blocks.STORAGE_BLOCKS_COPPER, RLBlocks.COPPER_BLOCK);
+        addToTag(RLTags.Blocks.LOGS_IRONWOOD, RLBlocks.IRONWOOD_LOG);
     }
 
-    private Builder<Block> addToTag(INamedTag<Block> tag, RegistryObject<Block> blockHandle) {
+    private <T extends Block> Builder<Block> addToTag(INamedTag<Block> tag, RegistryObject<T> blockHandle) {
         return tag(tag).add(blockHandle.get());
     }
 }
