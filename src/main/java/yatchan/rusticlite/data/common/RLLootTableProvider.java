@@ -55,7 +55,7 @@ public class RLLootTableProvider extends LootTableProvider {
         }
 
         //For consistency's sake with RLItemModelProvider; it's just nicer.
-        private void dropSelf(RegistryObject<Block> blockHandle) {
+        private <T extends Block> void dropSelf(RegistryObject<T> blockHandle) {
             dropSelf(blockHandle.get());
         }
     }

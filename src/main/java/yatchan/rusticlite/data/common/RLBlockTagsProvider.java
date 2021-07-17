@@ -22,7 +22,7 @@ public class RLBlockTagsProvider extends BlockTagsProvider {
         addToTag(RLTags.Blocks.STORAGE_BLOCKS_COPPER, RLBlocks.COPPER_BLOCK);
     }
 
-    private Builder<Block> addToTag(INamedTag<Block> tag, RegistryObject<Block> blockHandle) {
+    private <T extends Block> Builder<Block> addToTag(INamedTag<Block> tag, RegistryObject<T> blockHandle) {
         return tag(tag).add(blockHandle.get());
     }
 }

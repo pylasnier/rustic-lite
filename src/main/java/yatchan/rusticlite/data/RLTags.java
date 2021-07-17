@@ -13,6 +13,10 @@ public class RLTags {
         public static final INamedTag<Block> ORES_COPPER = forgeTag("ores/copper");
         public static final INamedTag<Block> STORAGE_BLOCKS_COPPER = forgeTag("storage_blocks/copper");
 
+        private static INamedTag<Block> mcTag(String path) {
+            return BlockTags.bind(new ResourceLocation("minecraft", path).toString());
+        }
+
         private static INamedTag<Block> forgeTag(String path) {
             return BlockTags.bind(new ResourceLocation("forge", path).toString());
         }
@@ -23,6 +27,10 @@ public class RLTags {
 
         public static final INamedTag<Item> ORES_COPPER = forgeTag("ores/copper");
         public static final INamedTag<Item> STORAGE_BLOCKS_COPPER = forgeTag("storage_blocks/copper");
+
+        private static INamedTag<Item> mcTag(String path) {
+            return ItemTags.bind(new ResourceLocation("minecraft", path).toString());
+        }
 
         private static INamedTag<Item> forgeTag(String path) {
             return ItemTags.bind(new ResourceLocation("forge", path).toString());

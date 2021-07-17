@@ -24,7 +24,7 @@ public class RLItemModelProvider extends ItemModelProvider {
         blockItem(RLBlocks.COPPER_BLOCK);
     }
 
-    private ItemModelBuilder blockItem(RegistryObject<Block> blockHandle) {
+    private <T extends Block> ItemModelBuilder blockItem(RegistryObject<T> blockHandle) {
         String blockName = blockHandle.get().getRegistryName().getPath();
         return withExistingParent(blockName, modLoc("block/" + blockName));
     }

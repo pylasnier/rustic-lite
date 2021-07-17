@@ -15,6 +15,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import yatchan.rusticlite.RusticLite;
 import yatchan.rusticlite.item.RLItems;
+import yatchan.rusticlite.setup.RLItemGroup;
 
 public class RLBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, RusticLite.MODID);
@@ -31,6 +32,6 @@ public class RLBlocks {
     }
 
     //Blocks
-    public static final RegistryObject<Block> COPPER_ORE = register("copper_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(5.0f, 6.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops()), ItemGroup.TAB_BUILDING_BLOCKS);
-    public static final RegistryObject<Block> COPPER_BLOCK = register("copper_block", () -> new Block(AbstractBlock.Properties.of(Material.METAL).sound(SoundType.METAL).strength(7.0f, 8.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE)), ItemGroup.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> COPPER_ORE = register("copper_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(5.0f, 6.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops()), RLItemGroup.TAB_RUSTICLITE_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> COPPER_BLOCK = register("copper_block", () -> new Block(AbstractBlock.Properties.of(Material.METAL).sound(SoundType.METAL).strength(7.0f, 8.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE)), RLItemGroup.TAB_RUSTICLITE_BUILDING_BLOCKS);
 }
