@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "minecraft:logs/logs_that_burn/ironwood_logs"
+    }
+  ],
+  "result": {
+    "item": "rusticlite:ironwood_planks",
+    "count": 4
+  }
+}

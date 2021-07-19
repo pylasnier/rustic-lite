@@ -11,12 +11,14 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.LootTableProvider;
 import net.minecraft.data.loot.BlockLootTables;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import yatchan.rusticlite.block.RLBlocks;
+import yatchan.rusticlite.block.RLLeavesBlock;
 import net.minecraft.loot.LootTable.Builder;
 import net.minecraft.loot.LootParameterSet;
 import net.minecraft.loot.LootParameterSets;
@@ -25,7 +27,6 @@ import net.minecraft.loot.LootTableManager;
 import net.minecraft.loot.ValidationTracker;
 
 public class RLLootTableProvider extends LootTableProvider {
-
     public RLLootTableProvider(DataGenerator generator) {
         super(generator);
     }
@@ -47,7 +48,15 @@ public class RLLootTableProvider extends LootTableProvider {
         protected void addTables() {
             dropSelf(RLBlocks.COPPER_ORE);
             dropSelf(RLBlocks.COPPER_BLOCK);
+
             dropSelf(RLBlocks.IRONWOOD_LOG);
+            dropSelf(RLBlocks.OLIVE_LOG);
+
+            dropSelf(RLBlocks.IRONWOOD_PLANKS);
+            dropSelf(RLBlocks.OLIVE_PLANKS);
+
+            leavesDrop(RLBlocks.IRONWOOD_LEAVES, Blocks.OAK_SAPLING);
+            leavesDrop(RLBlocks.OLIVE_LEAVES, Blocks.OAK_SAPLING);
         }
 
         @Override
@@ -58,6 +67,10 @@ public class RLLootTableProvider extends LootTableProvider {
         //For consistency's sake with RLItemModelProvider; it's just nicer.
         private <T extends Block> void dropSelf(RegistryObject<T> blockHandle) {
             dropSelf(blockHandle.get());
+        }
+
+        private void leavesDrop(RegistryObject<RLLeavesBlock> leavesHandle, Block saplingHandle) {
+            add(leavesHandle.get(), (leavesBlock) -> { return createLeavesDrops(leavesBlock, saplingHandle, new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F}); });
         }
     }
 }

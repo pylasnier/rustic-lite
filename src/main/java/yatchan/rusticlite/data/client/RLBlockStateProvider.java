@@ -1,13 +1,13 @@
 package yatchan.rusticlite.data.client;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.RegistryObject;
 import yatchan.rusticlite.RusticLite;
 import yatchan.rusticlite.block.RLBlocks;
+import yatchan.rusticlite.block.RLLogBlock;
 
 public class RLBlockStateProvider extends BlockStateProvider {
     public RLBlockStateProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -18,15 +18,23 @@ public class RLBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         simpleBlock(RLBlocks.COPPER_ORE);
         simpleBlock(RLBlocks.COPPER_BLOCK);
+
         logBlock(RLBlocks.IRONWOOD_LOG);
+        logBlock(RLBlocks.OLIVE_LOG);
+
+        simpleBlock(RLBlocks.IRONWOOD_PLANKS);
+        simpleBlock(RLBlocks.OLIVE_PLANKS);
+
+        simpleBlock(RLBlocks.IRONWOOD_LEAVES);
+        simpleBlock(RLBlocks.OLIVE_LEAVES);
     }
 
     // For consistency's sake with RLItemModelProvider; it's just nicer.
-    private void simpleBlock(RegistryObject<Block> blockHandle) {
+    private <T extends Block> void simpleBlock(RegistryObject<T> blockHandle) {
         simpleBlock(blockHandle.get());
     }
 
-    private void logBlock(RegistryObject<RotatedPillarBlock> blockHandle) {
+    private void logBlock(RegistryObject<RLLogBlock> blockHandle) {
         logBlock(blockHandle.get());
     }
 }

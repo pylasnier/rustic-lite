@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "rusticlite:block/olive_log",
+    "end": "rusticlite:block/olive_log_top"
+  }
+}

@@ -2,13 +2,13 @@
     "item.rusticlite.copper": "Copper",
     "block.rusticlite.copper_ore": "Copper Ore",
     "block.rusticlite.copper_block": "Copper Block",
-    "block.rusticlite.leaves_ironwood": "Ironwood Leaves",
-    "block.rusticlite.leaves_olive": "Olive Leaves",
-    "block.rusticlite.log_ironwood": "Ironwood Log",
-    "block.rusticlite.log_olive": "Olive Log",
-    "block.rusticlite.planks_ironwood": "Ironwood Planks",
-    "block.rusticlite.planks_olive": "Olive Planks",
-    "block.rusticlite.sapling_ironwood": "Ironwood Sapling",
-    "block.rusticlite.sapling_olive": "Olive Sapling",
-    "itemGroup.rustic_lite_building_blocks": "Rustic Lite Building Blocks"
+    "block.rusticlite.ironwood_leaves": "Ironwood Leaves",
+    "block.rusticlite.olive_leaves": "Olive Leaves",
+    "block.rusticlite.ironwood_log": "Ironwood Log",
+    "block.rusticlite.olive_log": "Olive Log",
+    "block.rusticlite.ironwood_planks": "Ironwood Planks",
+    "block.rusticlite.olive_planks": "Olive Planks",
+    "block.rusticlite.ironwood_sapling": "Ironwood Sapling",
+    "block.rusticlite.olive_sapling": "Olive Sapling",
+    "itemGroup.rusticlite_building_blocks": "Rustic Lite Building Blocks"
 }

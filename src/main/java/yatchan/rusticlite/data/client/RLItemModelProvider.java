@@ -22,7 +22,15 @@ public class RLItemModelProvider extends ItemModelProvider {
 
         blockItem(RLBlocks.COPPER_ORE);
         blockItem(RLBlocks.COPPER_BLOCK);
+
         blockItem(RLBlocks.IRONWOOD_LOG);
+        blockItem(RLBlocks.OLIVE_LOG);
+
+        blockItem(RLBlocks.IRONWOOD_PLANKS);
+        blockItem(RLBlocks.OLIVE_PLANKS);
+
+        blockItem(RLBlocks.IRONWOOD_LEAVES);
+        blockItem(RLBlocks.OLIVE_LEAVES);
     }
 
     private <T extends Block> ItemModelBuilder blockItem(RegistryObject<T> blockHandle) {

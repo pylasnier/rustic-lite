@@ -11,7 +11,12 @@ public class RLTags {
     public static final class Blocks {
         public static final INamedTag<Block> ORES_COPPER = forgeTag("ores/copper");
         public static final INamedTag<Block> STORAGE_BLOCKS_COPPER = forgeTag("storage_blocks/copper");
-        public static final INamedTag<Block> LOGS_IRONWOOD = mcTag("logs/logs_that_burn/ironwood_logs/ironwood_log");
+
+        public static final INamedTag<Block> LOGS_IRONWOOD = mcTag("logs/logs_that_burn/ironwood_logs");
+        public static final INamedTag<Block> LOGS_OLIVE = mcTag("logs/logs_that_burn/olive_logs");
+        
+        public static final INamedTag<Block> PLANKS = mcTag("planks");
+        public static final INamedTag<Block> LEAVES = mcTag("leaves");
 
         private static INamedTag<Block> mcTag(String path) {
             return BlockTags.bind(new ResourceLocation("minecraft", path).toString());
@@ -27,7 +32,12 @@ public class RLTags {
 
         public static final INamedTag<Item> ORES_COPPER = forgeTag("ores/copper");
         public static final INamedTag<Item> STORAGE_BLOCKS_COPPER = forgeTag("storage_blocks/copper");
-        public static final INamedTag<Item> LOGS_IRONWOOD = mcTag("logs/logs_that_burn/ironwood_logs/ironwood_log");
+
+        public static final INamedTag<Item> LOGS_IRONWOOD = mcTag("logs/logs_that_burn/ironwood_logs");
+        public static final INamedTag<Item> LOGS_OLIVE = mcTag("logs/logs_that_burn/olive_logs");
+
+        public static final INamedTag<Item> PLANKS = mcTag("planks");
+        public static final INamedTag<Item> LEAVES = mcTag("leaves");
 
         private static INamedTag<Item> mcTag(String path) {
             return ItemTags.bind(new ResourceLocation("minecraft", path).toString());

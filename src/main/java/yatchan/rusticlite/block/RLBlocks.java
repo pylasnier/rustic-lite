@@ -5,7 +5,6 @@ import java.util.function.Supplier;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.OreBlock;
 import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -37,8 +36,15 @@ public class RLBlocks {
     // Blocks
     public static final RegistryObject<Block> COPPER_ORE = register("copper_ore", () -> new Block(AbstractBlock.Properties.of(Material.STONE).strength(5.0f, 6.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops()), ItemGroup.TAB_BUILDING_BLOCKS);
     public static final RegistryObject<Block> COPPER_BLOCK = register("copper_block", () -> new Block(AbstractBlock.Properties.of(Material.METAL).sound(SoundType.METAL).strength(7.0f, 8.0f).harvestLevel(1).harvestTool(ToolType.PICKAXE)), ItemGroup.TAB_BUILDING_BLOCKS);
-    public static final RegistryObject<RotatedPillarBlock> IRONWOOD_LOG = register("ironwood_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD).sound(SoundType.WOOD).harvestLevel(1).harvestTool(ToolType.AXE)), RLItemGroup.TAB_RUSTIC_LITE_BUILDING_BLOCKS);
 
+    public static final RegistryObject<RLLogBlock> IRONWOOD_LOG = register("ironwood_log", () -> new RLLogBlock(), RLItemGroup.TAB_RUSTICLITE_BUILDING_BLOCKS);
+    public static final RegistryObject<RLLogBlock> OLIVE_LOG = register("olive_log", () -> new RLLogBlock(), RLItemGroup.TAB_RUSTICLITE_BUILDING_BLOCKS);
+
+    public static final RegistryObject<RLPlanksBlock> IRONWOOD_PLANKS = register("ironwood_planks", () -> new RLPlanksBlock(), RLItemGroup.TAB_RUSTICLITE_BUILDING_BLOCKS);
+    public static final RegistryObject<RLPlanksBlock> OLIVE_PLANKS = register("olive_planks", () -> new RLPlanksBlock(), RLItemGroup.TAB_RUSTICLITE_BUILDING_BLOCKS);
+
+    public static final RegistryObject<RLLeavesBlock> IRONWOOD_LEAVES = register("ironwood_leaves", () -> new RLLeavesBlock(), RLItemGroup.TAB_RUSTICLITE_BUILDING_BLOCKS);
+    public static final RegistryObject<RLLeavesBlock> OLIVE_LEAVES = register("olive_leaves", () -> new RLLeavesBlock(), RLItemGroup.TAB_RUSTICLITE_BUILDING_BLOCKS);
     
     // Helper methods
 }

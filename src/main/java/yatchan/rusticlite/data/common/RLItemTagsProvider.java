@@ -23,7 +23,12 @@ public class RLItemTagsProvider extends ItemTagsProvider {
 
         copy(RLTags.Blocks.ORES_COPPER, RLTags.Items.ORES_COPPER);
         copy(RLTags.Blocks.STORAGE_BLOCKS_COPPER, RLTags.Items.STORAGE_BLOCKS_COPPER);
+
         copy(RLTags.Blocks.LOGS_IRONWOOD, RLTags.Items.LOGS_IRONWOOD);
+        copy(RLTags.Blocks.LOGS_OLIVE, RLTags.Items.LOGS_OLIVE);
+
+        copy(RLTags.Blocks.PLANKS, RLTags.Items.PLANKS);
+        copy(RLTags.Blocks.LEAVES, RLTags.Items.LEAVES);
     }
 
     private Builder<Item> addToTag(INamedTag<Item> tag, RegistryObject<Item> blockHandle) {

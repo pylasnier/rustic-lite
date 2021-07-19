@@ -20,7 +20,15 @@ public class RLBlockTagsProvider extends BlockTagsProvider {
     protected void addTags() {
         addToTag(RLTags.Blocks.ORES_COPPER, RLBlocks.COPPER_ORE);
         addToTag(RLTags.Blocks.STORAGE_BLOCKS_COPPER, RLBlocks.COPPER_BLOCK);
+
         addToTag(RLTags.Blocks.LOGS_IRONWOOD, RLBlocks.IRONWOOD_LOG);
+        addToTag(RLTags.Blocks.LOGS_OLIVE, RLBlocks.OLIVE_LOG);
+
+        addToTag(RLTags.Blocks.PLANKS, RLBlocks.IRONWOOD_PLANKS);
+        addToTag(RLTags.Blocks.PLANKS, RLBlocks.OLIVE_PLANKS);
+
+        addToTag(RLTags.Blocks.LEAVES, RLBlocks.IRONWOOD_LEAVES);
+        addToTag(RLTags.Blocks.LEAVES, RLBlocks.OLIVE_LEAVES);
     }
 
     private <T extends Block> Builder<Block> addToTag(INamedTag<Block> tag, RegistryObject<T> blockHandle) {
