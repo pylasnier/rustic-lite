@@ -19,6 +19,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import yatchan.rusticlite.block.RLBlocks;
 import yatchan.rusticlite.block.RLLeavesBlock;
+import yatchan.rusticlite.block.RLSaplingBlock;
 import net.minecraft.loot.LootTable.Builder;
 import net.minecraft.loot.LootParameterSet;
 import net.minecraft.loot.LootParameterSets;
@@ -55,8 +56,11 @@ public class RLLootTableProvider extends LootTableProvider {
             dropSelf(RLBlocks.IRONWOOD_PLANKS);
             dropSelf(RLBlocks.OLIVE_PLANKS);
 
-            leavesDrop(RLBlocks.IRONWOOD_LEAVES, Blocks.OAK_SAPLING);
-            leavesDrop(RLBlocks.OLIVE_LEAVES, Blocks.OAK_SAPLING);
+            leavesDrop(RLBlocks.IRONWOOD_LEAVES, RLBlocks.IRONWOOD_SAPLING);
+            leavesDrop(RLBlocks.OLIVE_LEAVES, RLBlocks.OLIVE_SAPLING);
+
+            dropSelf(RLBlocks.IRONWOOD_SAPLING);
+            dropSelf(RLBlocks.OLIVE_SAPLING);
         }
 
         @Override
@@ -69,8 +73,8 @@ public class RLLootTableProvider extends LootTableProvider {
             dropSelf(blockHandle.get());
         }
 
-        private void leavesDrop(RegistryObject<RLLeavesBlock> leavesHandle, Block saplingHandle) {
-            add(leavesHandle.get(), (leavesBlock) -> { return createLeavesDrops(leavesBlock, saplingHandle, new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F}); });
+        private void leavesDrop(RegistryObject<RLLeavesBlock> leavesHandle, RegistryObject<RLSaplingBlock> saplingHandle) {
+            add(leavesHandle.get(), (leavesBlock) -> { return createLeavesDrops(leavesBlock, saplingHandle.get(), new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F}); });
         }
     }
 }

@@ -1,5 +1,7 @@
 package yatchan.rusticlite.data.client;
 
+import java.rmi.registry.Registry;
+
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -27,6 +29,9 @@ public class RLBlockStateProvider extends BlockStateProvider {
 
         simpleBlock(RLBlocks.IRONWOOD_LEAVES);
         simpleBlock(RLBlocks.OLIVE_LEAVES);
+
+        simpleCross(RLBlocks.IRONWOOD_SAPLING);
+        simpleCross(RLBlocks.OLIVE_SAPLING);
     }
 
     // For consistency's sake with RLItemModelProvider; it's just nicer.
@@ -36,5 +41,10 @@ public class RLBlockStateProvider extends BlockStateProvider {
 
     private void logBlock(RegistryObject<RLLogBlock> blockHandle) {
         logBlock(blockHandle.get());
+    }
+
+    private <T extends Block> void simpleCross(RegistryObject<T> blockHandle) {
+        String blockName = blockHandle.get().getRegistryName().getPath();
+        simpleBlock(blockHandle.get(), models().cross(blockName, modLoc("block/" + blockName)));
     }
 }

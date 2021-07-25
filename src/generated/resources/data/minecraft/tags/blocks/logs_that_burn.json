@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:logs/logs_that_burn/ironwood_logs",
+    "#minecraft:logs/logs_that_burn/olive_logs"
+  ]
+}

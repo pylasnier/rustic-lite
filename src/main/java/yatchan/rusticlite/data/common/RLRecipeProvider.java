@@ -12,12 +12,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.crafting.CookingRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ITag;
-import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.IItemProvider;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import yatchan.rusticlite.block.RLBlocks;
-import yatchan.rusticlite.block.RLLogBlock;
 import yatchan.rusticlite.block.RLPlanksBlock;
 import yatchan.rusticlite.data.RLTags;
 import yatchan.rusticlite.item.RLItems;
@@ -32,6 +30,7 @@ public class RLRecipeProvider extends RecipeProvider {
     protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
         blockShape(consumer, RLItems.COPPER, RLBlocks.COPPER_BLOCK);
         blockToComponent(consumer, RLBlocks.COPPER_BLOCK, RLItems.COPPER);
+
         blastingSmelting(consumer, RLBlocks.COPPER_ORE, RLItems.COPPER, 0.7f, 200);
 
         planksFromLog(consumer, RLBlocks.IRONWOOD_PLANKS, RLTags.Items.LOGS_IRONWOOD);
@@ -66,7 +65,7 @@ public class RLRecipeProvider extends RecipeProvider {
      void blockShape(Consumer<IFinishedRecipe> consumer, RegistryObject<T> input, RegistryObject<E> result) {
         ShapedRecipeBuilder.shaped(result.get()).define('#', input.get()).pattern("###").pattern("###").pattern("###").unlockedBy("has_material", has(input.get())).save(consumer);
     }
-
+    
     //Common shapeless recipes
     private static <T extends IForgeRegistryEntry<? super T> & IItemProvider, E extends IForgeRegistryEntry<? super E> & IItemProvider>
     void blockToComponent(Consumer<IFinishedRecipe> consumer, RegistryObject<T> input, RegistryObject<E> result) {

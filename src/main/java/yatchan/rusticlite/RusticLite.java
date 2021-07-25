@@ -2,6 +2,8 @@ package yatchan.rusticlite;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -59,6 +61,8 @@ public class RusticLite
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
+        RenderTypeLookup.setRenderLayer(RLBlocks.IRONWOOD_SAPLING.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(RLBlocks.OLIVE_SAPLING.get(), RenderType.cutout());
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
     }
 

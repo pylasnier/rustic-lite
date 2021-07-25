@@ -18,6 +18,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import yatchan.rusticlite.RusticLite;
 import yatchan.rusticlite.item.RLItems;
 import yatchan.rusticlite.setup.RLItemGroup;
+import yatchan.rusticlite.world.RLIronwoodTree;
+import yatchan.rusticlite.world.RLOliveTree;
 
 public class RLBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, RusticLite.MODID);
@@ -45,6 +47,9 @@ public class RLBlocks {
 
     public static final RegistryObject<RLLeavesBlock> IRONWOOD_LEAVES = register("ironwood_leaves", () -> new RLLeavesBlock(), RLItemGroup.TAB_RUSTICLITE_BUILDING_BLOCKS);
     public static final RegistryObject<RLLeavesBlock> OLIVE_LEAVES = register("olive_leaves", () -> new RLLeavesBlock(), RLItemGroup.TAB_RUSTICLITE_BUILDING_BLOCKS);
+
+    public static final RegistryObject<RLSaplingBlock> IRONWOOD_SAPLING = register("ironwood_sapling", () -> new RLSaplingBlock(new RLIronwoodTree()), RLItemGroup.TAB_RUSTICLITE_BUILDING_BLOCKS);
+    public static final RegistryObject<RLSaplingBlock> OLIVE_SAPLING = register("olive_sapling", () -> new RLSaplingBlock(new RLOliveTree()), RLItemGroup.TAB_RUSTICLITE_BUILDING_BLOCKS);
     
     // Helper methods
 }

@@ -31,6 +31,9 @@ public class RLItemModelProvider extends ItemModelProvider {
 
         blockItem(RLBlocks.IRONWOOD_LEAVES);
         blockItem(RLBlocks.OLIVE_LEAVES);
+
+        generatedBlockItem(RLBlocks.IRONWOOD_SAPLING);
+        generatedBlockItem(RLBlocks.OLIVE_SAPLING);
     }
 
     private <T extends Block> ItemModelBuilder blockItem(RegistryObject<T> blockHandle) {
@@ -41,5 +44,10 @@ public class RLItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder generatedItem(RegistryObject<Item> itemHandle) {
         String itemName = itemHandle.get().getRegistryName().getPath();
         return withExistingParent(itemName, mcLoc("item/generated")).texture("layer0", "item/" + itemName);
+    }
+
+    private <T extends Block> ItemModelBuilder generatedBlockItem(RegistryObject<T> blockHandle) {
+        String blockName = blockHandle.get().getRegistryName().getPath();
+        return withExistingParent(blockName, mcLoc("item/generated")).texture("layer0", "block/" + blockName);
     }
 }
