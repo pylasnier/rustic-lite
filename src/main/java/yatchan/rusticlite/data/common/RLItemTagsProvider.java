@@ -20,6 +20,9 @@ public class RLItemTagsProvider extends ItemTagsProvider {
         super(generator, blockTagsProvider, RusticLite.MODID, existingFileHelper);
     }
     
+    // All block tags that are set (i.e. custom tags defined, pre-existing tags modified) must be
+    // copied here, and item tags are set here much like block tags, so add items to tags and
+    // custom tags to their pre-existing parent tags.
     @Override
     protected void addTags() {
         addTagToTag(Tags.Items.INGOTS, RLTags.Items.INGOTS_COPPER);
@@ -39,6 +42,7 @@ public class RLItemTagsProvider extends ItemTagsProvider {
         copy(BlockTags.SAPLINGS, ItemTags.SAPLINGS);
     }
 
+    // Helper methods to add block to tag, or custom tag to pre-existing or other custom tags
     private Builder<Item> addItemToTag(INamedTag<Item> tag, RegistryObject<Item> blockHandle) {
         return tag(tag).add(blockHandle.get());
     }

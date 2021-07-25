@@ -21,7 +21,6 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import yatchan.rusticlite.block.RLBlocks;
 import yatchan.rusticlite.item.RLItems;
-import yatchan.rusticlite.setup.RLColors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -65,8 +64,11 @@ public class RusticLite
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
+
+        // Sets transparency to sapling cross model in game
         RenderTypeLookup.setRenderLayer(RLBlocks.IRONWOOD_SAPLING.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(RLBlocks.OLIVE_SAPLING.get(), RenderType.cutout());
+
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
     }
 
@@ -100,6 +102,7 @@ public class RusticLite
             LOGGER.info("HELLO from Register Block");
         }
         
+        // Registering leaves blocks to biome colours, require face tint to not be -1 in model, handled in block model data gen.
         @SubscribeEvent
         public static void registerBlockColors(final ColorHandlerEvent.Block event) {
             event.getBlockColors().register((blockState, blockDisplayReader, blockPos, tintIndex) -> {

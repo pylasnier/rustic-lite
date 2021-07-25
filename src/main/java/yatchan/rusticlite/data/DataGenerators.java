@@ -15,13 +15,13 @@ import yatchan.rusticlite.data.common.RLRecipeProvider;
 
 @Mod.EventBusSubscriber(modid = RusticLite.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
-    private DataGenerators() { }
-
+    
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
+        // For each new data gen provider, it much be added here
         if (event.includeClient()) {
             generator.addProvider(new RLBlockStateProvider(generator, existingFileHelper));
             generator.addProvider(new RLItemModelProvider(generator, existingFileHelper));

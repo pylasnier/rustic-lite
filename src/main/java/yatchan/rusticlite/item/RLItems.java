@@ -17,6 +17,9 @@ public class RLItems {
         return ITEMS.register(name, item);
     }
 
-    //Items
+    // ITEMS
+    // Item.Properties gives item properties e.g. edible, using method chaining property setters.
+    // Construction slightly different to block properties for some reason
+    
     public static final RegistryObject<Item> COPPER = register("copper", () -> new Item(new Item.Properties().food(new Food.Builder().alwaysEat().build()).tab(ItemGroup.TAB_MATERIALS)));
 }

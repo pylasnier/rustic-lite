@@ -1,7 +1,5 @@
 package yatchan.rusticlite.data.client;
 
-import java.rmi.registry.Registry;
-
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
@@ -18,6 +16,7 @@ public class RLBlockStateProvider extends BlockStateProvider {
         super(generator, RusticLite.MODID, existingFileHelper);
     }
 
+    // Every block must be registered, preferably through appropriate helper methods.
     @Override
     protected void registerStatesAndModels() {
         simpleBlock(RLBlocks.COPPER_ORE);
@@ -36,7 +35,7 @@ public class RLBlockStateProvider extends BlockStateProvider {
         simpleCross(RLBlocks.OLIVE_SAPLING);
     }
 
-    // For consistency's sake with RLItemModelProvider; it's just nicer.
+    // Helper methods, first two just take RegistryObject to make passing them nicer.
     private <T extends Block> void simpleBlock(RegistryObject<T> blockHandle) {
         simpleBlock(blockHandle.get());
     }
@@ -50,10 +49,15 @@ public class RLBlockStateProvider extends BlockStateProvider {
         simpleBlock(blockHandle.get(), models().cross(blockName, modLoc("block/" + blockName)));
     }
 
+    // Need this specifically to allow the leaves blocks to be tinted, by setting each face tintIndex to not -1
     private void coloredLeavesBlock(RegistryObject<RLLeavesBlock> blockHandle) {
         String blockName = blockHandle.get().getRegistryName().getPath();
+
+        // Copying BlockStateProvider#cubeAll because it returns ModelFile instead of ModelProvider for some reason,
+        // so element method isn't accessible
         BlockModelBuilder modelBuilder = models().cubeAll(blockName, modLoc("block/" + blockName));
 
+        // Because element() returns a new element builder instead of the model builder, must be used separately
         modelBuilder.element().allFaces((direction, faceBuilder) -> { faceBuilder.tintindex(0).texture("#all"); });
 
         simpleBlock(blockHandle.get(), modelBuilder);

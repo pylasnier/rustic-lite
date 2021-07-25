@@ -11,7 +11,6 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.LootTableProvider;
 import net.minecraft.data.loot.BlockLootTables;
@@ -35,16 +34,21 @@ public class RLLootTableProvider extends LootTableProvider {
     @Override
     protected java.util.List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, Builder>>>, LootParameterSet>> getTables() {
         return ImmutableList.of(
+            // Here, every set of loot tables must be declared. Each type of loot table
+            // is given in LootParameterSets.
             Pair.of(RLBlockLootTables::new, LootParameterSets.BLOCK)
         );
     }
 
+    // Needs to be overriden to remove the check for vanilla loot tables, because we don't have them.
     @Override
     protected void validate(Map<ResourceLocation, LootTable> map, ValidationTracker validationTracker) {
         map.forEach((resourceLocation, lootTable) -> LootTableManager.validate(validationTracker, resourceLocation, lootTable));
     }
 
     public static class RLBlockLootTables extends BlockLootTables {
+
+        // Here, all block loot tables are registered
         @Override
         protected void addTables() {
             dropSelf(RLBlocks.COPPER_ORE);
@@ -63,12 +67,14 @@ public class RLLootTableProvider extends LootTableProvider {
             dropSelf(RLBlocks.OLIVE_SAPLING);
         }
 
+        // This needs to be overriden to match the blocks of Rustic Lite instead of vanilla
         @Override
         protected Iterable<Block> getKnownBlocks() {
             return RLBlocks.BLOCKS.getEntries().stream().map(RegistryObject<Block>::get).collect(Collectors.toList());
         }
 
-        //For consistency's sake with RLItemModelProvider; it's just nicer.
+        // Helper methods allow using RegistryObject, also copying normal leaves sapling chance,
+        // because it's private in BlockLootTables. idk why, really sucks
         private <T extends Block> void dropSelf(RegistryObject<T> blockHandle) {
             dropSelf(blockHandle.get());
         }
