@@ -4,6 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.world.FoliageColors;
+import net.minecraft.world.biome.BiomeColors;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,6 +21,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import yatchan.rusticlite.block.RLBlocks;
 import yatchan.rusticlite.item.RLItems;
+import yatchan.rusticlite.setup.RLColors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -94,6 +98,22 @@ public class RusticLite
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
             // register a new block here
             LOGGER.info("HELLO from Register Block");
+        }
+        
+        @SubscribeEvent
+        public static void registerBlockColors(final ColorHandlerEvent.Block event) {
+            event.getBlockColors().register((blockState, blockDisplayReader, blockPos, tintIndex) -> {
+                return blockDisplayReader != null && blockPos != null ? BiomeColors.getAverageFoliageColor(blockDisplayReader, blockPos) : FoliageColors.getDefaultColor();
+            }, RLBlocks.IRONWOOD_LEAVES.get(), RLBlocks.OLIVE_LEAVES.get());
+            LOGGER.info("HELLO from Register Block Colors");
+        }
+    
+        @SubscribeEvent
+        public static void registerItemColors(final ColorHandlerEvent.Item event) {
+            event.getItemColors().register((itemStack, tintIndex) -> {
+                return FoliageColors.getDefaultColor();
+            }, RLBlocks.IRONWOOD_LEAVES.get(), RLBlocks.OLIVE_LEAVES.get());
+            LOGGER.info(String.format("HELLO from Register Item Colors. Default foliage: #0x%08X", FoliageColors.getDefaultColor()));
         }
     }
 }

@@ -4,11 +4,13 @@ import java.rmi.registry.Registry;
 
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.RegistryObject;
 import yatchan.rusticlite.RusticLite;
 import yatchan.rusticlite.block.RLBlocks;
+import yatchan.rusticlite.block.RLLeavesBlock;
 import yatchan.rusticlite.block.RLLogBlock;
 
 public class RLBlockStateProvider extends BlockStateProvider {
@@ -27,8 +29,8 @@ public class RLBlockStateProvider extends BlockStateProvider {
         simpleBlock(RLBlocks.IRONWOOD_PLANKS);
         simpleBlock(RLBlocks.OLIVE_PLANKS);
 
-        simpleBlock(RLBlocks.IRONWOOD_LEAVES);
-        simpleBlock(RLBlocks.OLIVE_LEAVES);
+        coloredLeavesBlock(RLBlocks.IRONWOOD_LEAVES);
+        coloredLeavesBlock(RLBlocks.OLIVE_LEAVES);
 
         simpleCross(RLBlocks.IRONWOOD_SAPLING);
         simpleCross(RLBlocks.OLIVE_SAPLING);
@@ -46,5 +48,14 @@ public class RLBlockStateProvider extends BlockStateProvider {
     private <T extends Block> void simpleCross(RegistryObject<T> blockHandle) {
         String blockName = blockHandle.get().getRegistryName().getPath();
         simpleBlock(blockHandle.get(), models().cross(blockName, modLoc("block/" + blockName)));
+    }
+
+    private void coloredLeavesBlock(RegistryObject<RLLeavesBlock> blockHandle) {
+        String blockName = blockHandle.get().getRegistryName().getPath();
+        BlockModelBuilder modelBuilder = models().cubeAll(blockName, modLoc("block/" + blockName));
+
+        modelBuilder.element().allFaces((direction, faceBuilder) -> { faceBuilder.tintindex(0).texture("#all"); });
+
+        simpleBlock(blockHandle.get(), modelBuilder);
     }
 }
